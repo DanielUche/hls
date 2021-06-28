@@ -25,7 +25,6 @@ type VideoProps = {
 };
 
 const Player = ({ videoUrl }: VideoProps) => {
-  console.log(videoUrl);
   let playerRef = useRef<HTMLVideoElement>(null!);
   let playBtn = useRef<HTMLDivElement>(null!);
   let volumeBtn = useRef<HTMLDivElement>(null!);
@@ -108,12 +107,14 @@ const Player = ({ videoUrl }: VideoProps) => {
   };
 
   const updateProgress = (): void => {
-    progressFill.current.style.width = `${
-      (playerRef.current.currentTime / playerRef.current.duration) * 100
-    }%`;
-    currentTimeDiv.current.innerHTML = `${neatTime(
-      playerRef.current.currentTime
-    )} / ${neatTime(playerRef.current.duration)}`;
+      if (!isNaN(playerRef.current.duration)){
+        progressFill.current.style.width = `${
+            (playerRef.current.currentTime / playerRef.current.duration) * 100
+          }%`;
+          currentTimeDiv.current.innerHTML = `${neatTime(
+            playerRef.current.currentTime
+          )} / ${neatTime(playerRef.current.duration)}`;
+      }
   };
 
   const setProgress = (e: any): void => {
