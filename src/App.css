@@ -34,3 +34,14 @@ ul > li {
 ul > li:last-of-type {
   padding-bottom: 0px;
 }
+
+  .auto-container  {
+    top: 5px;
+    position: relative;
+    clear: both;
+    width: 700px;;
+  }
+
+  .auto-load {
+    float: right;
+  }
