@@ -1,0 +1,24 @@
+
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.list-div {
+  border: 2px solid red;
+  width: 150px;
+  height: 400px;
+  overflow-y: scroll;
+  color: black;
+  margin-left: 10px;
+  position: relative;
+  float: left;
+}
+
+.app-container {
+  position: relative;
+  width: 900px;
+  margin: auto;
+  top: 50px;
+}
