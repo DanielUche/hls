@@ -1,38 +1,36 @@
-import React, { useEffect, useRef, useState, SyntheticEvent } from "react";
+import React from "react";
 
 import Player from "./player/player";
 import "./App.css";
 
 function App() {
-  const [videoUrl, setVideoUrl] = useState("");
-  const loadVideo = (e: SyntheticEvent<HTMLAnchorElement>) => {
-      setVideoUrl(String(e.currentTarget.dataset.url));
-      console.log(videoUrl);
-  };
+  const videoList = [
+    {
+      video: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+      poster: "title_anouncement.jpg",
+    },
+    {
+      video:
+        "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8",
+      poster: "title_anouncement.jpg",
+    },
+    {
+      video: "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8",
+      poster: "title_anouncement.jpg",
+    },
+    {
+      video: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8",
+      poster: "title_anouncement.jpg",
+    },
+    {
+      video: "http://content.jwplatform.com/manifests/vM7nH0Kl.m3u8",
+      poster: "title_anouncement.jpg",
+    },
+  ];
   return (
     <div className="App">
       <div className="app-container">
-        <Player videoUrl={videoUrl}/>
-        <div className="list-div">
-          <a
-            href="/#"
-            data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
-            onClick={(e) =>
-              loadVideo(e)
-            }
-          >
-           Placehlder Video One
-          </a>
-          <a
-            href="/#"
-            data-url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
-            onClick={(e) =>
-              loadVideo(e)
-            }
-          >
-           Placehlder Video Two
-          </a>
-        </div>
+        <Player videoList={videoList} />
       </div>
     </div>
   );
